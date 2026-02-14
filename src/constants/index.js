@@ -1,4 +1,7 @@
 import {
+  mysql,
+  Ci,
+  django,
   NameLogo,
   math,
   mobile,
@@ -6,17 +9,12 @@ import {
   creator,
   web,
   javascript,
-  typescript,
   html,
   css,
   reactjs,
-  redux,
   tailwind,
-  nodejs,
   mongodb,
   git,
-  figma,
-  docker,
   meta,
   starbucks,
   tesla,
@@ -55,11 +53,11 @@ const services = [
     icon: mobile,
   },
   {
-    title: "NextJs Developer",
+    title: "Flask Developer",
     icon: web,
   },
   {
-    title: "Backend Developer",
+    title: "Django Developer",
     icon: backend,
   },
   {
@@ -81,42 +79,42 @@ const technologies = [
     name: "JavaScript",
     icon: javascript,
   },
-  {
-    name: "TypeScript",
-    icon: typescript,
+   {
+    name: "Django",
+    icon: django,
   },
   {
     name: "React JS",
     icon: reactjs,
   },
   {
-    name: "Redux Toolkit",
-    icon: redux,
+    name: "MySQL",
+    icon: mysql,
   },
   {
     name: "Tailwind CSS",
     icon: tailwind,
   },
-  /* {
-    name: "Node JS",
-    icon: nodejs,
-  }, */
   {
+    name: "CI/CD",
+    icon: Ci,
+  },
+  /* {
     name: "MongoDB",
     icon: mongodb,
-  },
-  {
+  }, */
+  /* {
     name: "Three JS",
     icon: threejs,
-  },
+  }, */
   {
     name: "git",
     icon: git,
   },
-  {
+  /* {
     name: "figma",
     icon: figma,
-  },
+  }, */
  /*  {
     name: "docker",
     icon: docker,
