@@ -29,7 +29,12 @@ import {
   icpc,
   iupc,
   gemini,
-  ride
+  ride,
+  NEUB,
+  aston,
+  docker,
+  flask,
+  drf
 } from "../assets";
 
 export const navLinks = [
@@ -88,6 +93,14 @@ const technologies = [
     icon: reactjs,
   },
   {
+    name: "Flask",
+    icon: flask,
+  },
+  {
+    name: "DRF",
+    icon: drf,
+  },
+  {
     name: "MySQL",
     icon: mysql,
   },
@@ -98,6 +111,10 @@ const technologies = [
   {
     name: "CI/CD",
     icon: Ci,
+  },
+  {
+    name: "Docker",
+    icon:docker,
   },
   /* {
     name: "MongoDB",
@@ -122,7 +139,30 @@ const technologies = [
 ];
 
 const experiences = [
+  /* {
+    
+    title: "Aston University London",
+    company_name: " ",
+    icon: aston,
+    iconBg: "#383E56",
+    date: "October 2025",
+    points: [
+      "Cyber Security Management",
+    ],
+  }, */
+ /*  {
+    
+    title: "North East University Bangladesh",
+    company_name: " ",
+    icon: NEUB,
+    iconBg: "#383E56",
+    date: "October 2020",
+    points: [
+      "Computer Science & Engineering",
+    ],
+  }, */
   {
+    
     title: "ICPC Dhaka Regional",
     company_name: " ",
     icon: icpc2020,

@@ -18,6 +18,9 @@ import threejs from "./tech/threejs.svg";
 import django from "./tech/django-python.png";
 import Ci from "./tech/CiCd.png";
 import mysql from "./tech/mysql.png";
+import docker from "./tech/docker.png";
+import drf from "./tech/drf.png";
+import flask from "./tech/flask.png";
 
 import meta from "./company/meta.png";
 import shopify from "./company/shopify.png";
@@ -37,8 +40,13 @@ import gemini from "./gemini.jpg"
 import ride from "./ride.png"
 import math from "./math.jpg"
 import NameLogo from "./NameLogo.jpg"
+import aston from "./aston.png"
+import NEUB from "./NEUB.png"
 
 export {
+  flask,
+  drf,
+  docker,
   mysql,
   Ci,
   django,
@@ -75,4 +83,6 @@ export {
   carrent,
   jobit,
   tripguide,
+  NEUB,
+  aston
 };
