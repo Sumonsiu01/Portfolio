@@ -2,31 +2,20 @@ import React from "react";
 import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { slideIn, fadeIn } from "../utils/motion";
-import { FaUniversity, FaGraduationCap } from "react-icons/fa";
+import { FaGraduationCap } from "react-icons/fa";
 
 const educationData = [
+    {
+    degree: "Cyber Security Management",
+    institution: "Aston Univerisity London",
+    year: "2025-2026",
+  },
   {
     degree: "B.Sc in Computer Science & Engineering",
     institution: "North East University Bangladesh (NEUB)",
-    year: "2019 - 2023",
-    details: [
-      "CGPA: 3.95 / 4.00",
-      "Major: Artificial Intelligence & Machine Learning",
-      "Completed multiple research projects on NLP and ML.",
-    ],
+    year: "2020 - 2025",
   },
-  {
-    degree: "Higher Secondary Certificate (HSC)",
-    institution: "Ideal College, Dhaka",
-    year: "2017 - 2019",
-    details: ["Science Group", "GPA: 5.00 / 5.00"],
-  },
-  {
-    degree: "Secondary School Certificate (SSC)",
-    institution: "Ideal High School, Dhaka",
-    year: "2015 - 2017",
-    details: ["Science Group", "GPA: 5.00 / 5.00"],
-  },
+  
 ];
 
 const EducationCard = ({ education, index }) => (
@@ -43,14 +32,6 @@ const EducationCard = ({ education, index }) => (
     <h3 className="text-white text-xl font-bold">{education.degree}</h3>
     <p className="text-gray-400 italic mt-1">{education.institution}</p>
     <span className="text-blue-400 font-semibold">{education.year}</span>
-
-    <ul className="mt-3 list-disc ml-6 text-gray-300">
-      {education.details.map((item, idx) => (
-        <li key={idx} className="hover:text-white transition-all duration-300">
-          {item}
-        </li>
-      ))}
-    </ul>
   </motion.div>
 );
 

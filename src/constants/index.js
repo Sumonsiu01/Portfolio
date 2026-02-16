@@ -1,4 +1,5 @@
 import {
+  cp,
   mysql,
   Ci,
   django,
@@ -210,6 +211,16 @@ const experiences = [
     date: "2nd runners-up",
     points: [
       "I am a math loving person.Always try to perticipate in several olympiad",
+    ],
+  },
+  {
+    title: "Competitive Porgramming Instructor",
+    company_name: " ",
+    icon: cp,
+    iconBg: "#E6DEDD",
+    date: "Instructor",
+    points: [
+      "I used to arrange programming workshop in my university ",
     ],
   },
 ];

@@ -42,8 +42,10 @@ import math from "./math.jpg"
 import NameLogo from "./NameLogo.jpg"
 import aston from "./aston.png"
 import NEUB from "./NEUB.png"
+import cp from "./cp.png"
 
 export {
+  cp,
   flask,
   drf,
   docker,

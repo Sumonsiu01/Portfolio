@@ -14,11 +14,11 @@ const contactDetails = [
   },
   {
     type: "Email",
-    value: "sumonahmedadmit@gmail.com",
+    value: "selimalsumon@gmail.com",
   },
   {
     type: "LinkedIn",
-    value: "https://www.linkedin.com/in/sumonahmed/",
+    value: "www.linkedin.com/in/sumon-ahmed1999",
   },
   {
     type: "GitHub",
