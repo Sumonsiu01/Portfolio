@@ -18,7 +18,7 @@ const contactDetails = [
   },
   {
     type: "LinkedIn",
-    value: "www.linkedin.com/in/sumon-ahmed1999",
+    value: "https://www.linkedin.com/in/sumon-ahmed1999",
   },
   {
     type: "GitHub",
@@ -43,7 +43,10 @@ const ContactList = () => {
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: index * 0.2, type: "spring", stiffness: 50 }}
-              whileHover={{ scale: 1.05, boxShadow: "0 8px 20px rgba(0,0,0,0.5)" }}
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0 8px 20px rgba(0,0,0,0.5)",
+              }}
               className="flex flex-col md:flex-row md:gap-4 bg-tertiary p-4 rounded-lg cursor-pointer"
             >
               <span className="font-bold text-white w-32">{item.type}:</span>

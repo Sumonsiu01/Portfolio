@@ -233,66 +233,42 @@ const projects = [
   {
     name: "Gemini 2.0",
     description:
-      "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+      "AI powered web application built with React and Context API.",
     tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "Context Api",
-        color: "green-text-gradient",
-      },
-      {
-        name: "tailwind",
-        color: "pink-text-gradient",
-      },
+      { name: "react", color: "blue-text-gradient" },
+      { name: "Context Api", color: "green-text-gradient" },
+      { name: "tailwind", color: "pink-text-gradient" },
     ],
     image: gemini,
-    source_code_link: "https://github.com/",
+    source_code_link: "https://github.com/Sumonsiu01/Gemini",
+    live_link: "https://your-gemini-live-link.com",
   },
   {
     name: "Ride Sharing Application",
     description:
-      "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+      "Full stack ride sharing platform with REST API integration.",
     tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "restapi",
-        color: "green-text-gradient",
-      },
-      {
-        name: "scss",
-        color: "pink-text-gradient",
-      },
+      { name: "react", color: "blue-text-gradient" },
+      { name: "restapi", color: "green-text-gradient" },
+      { name: "scss", color: "pink-text-gradient" },
     ],
     image: ride,
-    source_code_link: "https://github.com/",
+    source_code_link: "https://github.com/Sumonsiu01/RideSharing",
+    live_link: "https://your-ride-live-link.com",
   },
   {
-    name: "Trip Guide",
+    name: "Kena Becha",
     description:
-      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+      "Modern E-commerse Website using django & Reactjs",
     tags: [
-      {
-        name: "nextjs",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "supabase",
-        color: "green-text-gradient",
-      },
-      {
-        name: "css",
-        color: "pink-text-gradient",
-      },
+      { name: "Python", color: "green-text-gradient" },
+      { name: "Django", color: "blue-text-gradient" },
+      { name: "Reactjs", color: "green-text-gradient" },
+      { name: "DRF", color: "pink-text-gradient" },
     ],
     image: tripguide,
-    source_code_link: "https://github.com/",
+    source_code_link: "https://github.com/Sumonsiu01/E-Commerse",
+    live_link: "https://your-tripguide-live-link.com",
   },
 ];
-
 export { services, technologies, experiences, testimonials, projects };
