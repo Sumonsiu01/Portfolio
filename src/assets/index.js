@@ -43,8 +43,11 @@ import NameLogo from "./NameLogo.jpg"
 import aston from "./aston.png"
 import NEUB from "./NEUB.png"
 import cp from "./cp.png"
+import ecommerce from "./ecommerce.png"
+
 
 export {
+  ecommerce,
   cp,
   flask,
   drf,

@@ -1,4 +1,5 @@
 import {
+  ecommerce,
   cp,
   mysql,
   Ci,
@@ -168,9 +169,9 @@ const experiences = [
     company_name: " ",
     icon: icpc2020,
     iconBg: "#383E56",
-    date: "February-2020(ranked-115th)",
+    date: "January-2020(ranked-115th)",
     points: [
-      "It was my first ICPC When I was in first year of my university Life.We solve 2 problem & ranked 115th",
+      "First appearance in ICPC Dhaka Reginal & Solved 3 problems",
     ],
   },
   {
@@ -180,7 +181,7 @@ const experiences = [
     iconBg: "#E6DEDD",
     date: "December-2024(ranked-91th)",
     points: [
-      "My last ICPC.WE solved there 3 problems & ranked 91th ",
+      "Last appearance & My team solved there 3 problems & ranked 91th ",
     ],
   },
   {
@@ -190,7 +191,7 @@ const experiences = [
     iconBg: "#383E56",
     date: "November-2024(ranked 7th)",
     points: [
-      "This ICPC was took place in Sylhet & We Ranked 7th.We solved 5 Problems",
+      "Metropolitan University IUPC & We Ranked 7th.We solved 5 Problems",
     ],
   },
   {
@@ -200,7 +201,7 @@ const experiences = [
     iconBg: "#E6DEDD",
     date: "5* rated",
     points: [
-      "I start there problem solving from the begining of my University Life.By the grace of Allmighty I solved there a handsome number of problem",
+      "I started problem-solving at the beginning of my university life and have solved a significant number of problems since then.",
     ],
   },
   {
@@ -210,7 +211,7 @@ const experiences = [
     iconBg: "#E6DEDD",
     date: "2nd runners-up",
     points: [
-      "I am a math loving person.Always try to perticipate in several olympiad",
+      "My last Math Olympiad",
     ],
   },
   {
@@ -220,7 +221,7 @@ const experiences = [
     iconBg: "#E6DEDD",
     date: "Instructor",
     points: [
-      "I used to arrange programming workshop in my university ",
+      "Led multiple programming workshops at my university, mentoring more than 5,000 students in problem solving, algorithms, and programming fundamentals.",
     ],
   },
 ];
@@ -257,7 +258,7 @@ const projects = [
     live_link: "https://your-ride-live-link.com",
   },
   {
-    name: "Kena Becha",
+    name: "GMart",
     description:
       "Modern E-commerse Website using django & Reactjs",
     tags: [
@@ -266,7 +267,7 @@ const projects = [
       { name: "Reactjs", color: "green-text-gradient" },
       { name: "DRF", color: "pink-text-gradient" },
     ],
-    image: tripguide,
+    image: ecommerce,
     source_code_link: "https://github.com/Sumonsiu01/E-Commerse",
     live_link: "https://your-tripguide-live-link.com",
   },
