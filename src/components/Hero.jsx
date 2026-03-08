@@ -1,55 +1,74 @@
 import { motion } from "framer-motion";
 import { styles } from "../styles";
-import { ComputersCanvas } from "./canvas";
-import MyProfile from "../assets/MyProfile.jpg"; // image path ঠিক রাখো
+import MyProfile from "../assets/MyProfile.jpg";
 
 const Hero = () => {
   return (
-    <section className="relative w-full h-screen mx-auto">
-      {/* Canvas as background */}
-      <ComputersCanvas className="absolute inset-0 z-0" />
+    <section className="relative w-full h-screen mx-auto overflow-hidden bg-[#0f172a]">
 
-      {/* Hero content */}
+      {/* Background glow */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-purple-600 opacity-30 blur-[120px]" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-indigo-500 opacity-30 blur-[120px]" />
+
       <div
-        className={`absolute inset-0 top-[120px] max-w-7xl mx-auto ${styles.paddingX} flex flex-col-reverse lg:flex-row items-center gap-10 z-20`}
+        className={`max-w-7xl mx-auto ${styles.paddingX} flex flex-col lg:flex-row items-center justify-between h-screen`}
       >
-        {/* Hero text */}
-        <div className="flex-1 text-center lg:text-left">
+
+        {/* Left Content */}
+        <motion.div
+          initial={{ opacity: 0, x: -60 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+          className="flex-1 text-center lg:text-left"
+        >
           <h1 className={`${styles.heroHeadText} text-white`}>
             Hi, I'm <span className="text-[#915EFF]">Sumon</span>
           </h1>
-          <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-            Let's Explore me <br className="sm:block hidden" />
+
+          <p className={`${styles.heroSubText} mt-6 text-gray-300 max-w-xl`}>
+            Software Engineer & AI Enthusiast
+            <br />
+            I build scalable web applications using
+            <span className="text-[#915EFF]"> React, Django & AI</span>.
           </p>
-        </div>
 
-        {/* Hero image */}
-        {/* <div className="flex-1 flex justify-center lg:justify-end">
-          <img
-            src={MyProfile}
-            alt="Sumon"
-            className="w-64 sm:w-80 md:w-96 h-auto rounded-xl shadow-2xl object-cover"
-          />
-        </div> */}
+          {/* Buttons */}
+          <div className="mt-10 flex gap-5 justify-center lg:justify-start">
+            <a
+              href="/cv.pdf"
+              className="px-7 py-3 bg-[#915EFF] text-white rounded-xl font-medium hover:scale-105 transition"
+            >
+              Download CV
+            </a>
 
-        {/* Left vertical line + dot (desktop only) */}
-        <div className="hidden lg:flex flex-col justify-center items-center mt-5">
-          <div className="w-5 h-5 rounded-full bg-[#915EFF]" />
-          <div className="w-1 sm:h-80 h-40 violet-gradient" />
-        </div>
-      </div>
-
-      {/* Scroll indicator */}
-      <div className="absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center z-20">
-        <a href="#about">
-          <div className="w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2">
-            <motion.div
-              animate={{ y: [0, 24, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity, repeatType: "loop" }}
-              className="w-3 h-3 rounded-full bg-secondary mb-1"
-            />
+            <a
+              href="#contact"
+              className="px-7 py-3 border border-[#915EFF] text-white rounded-xl hover:bg-[#915EFF] transition"
+            >
+              Contact Me
+            </a>
           </div>
-        </a>
+        </motion.div>
+
+        {/* Profile Image */}
+        <motion.div
+          initial={{ opacity: 0, x: 60 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+          className="flex-1 flex justify-center mt-10 lg:mt-0"
+        >
+          <div className="relative">
+            <img
+              src={MyProfile}
+              alt="Sumon"
+              className="w-72 h-72 object-cover rounded-full border-4 border-[#915EFF] shadow-2xl"
+            />
+
+            {/* glow ring */}
+            <div className="absolute inset-0 rounded-full border-2 border-purple-500 animate-ping opacity-20"></div>
+          </div>
+        </motion.div>
+
       </div>
     </section>
   );
