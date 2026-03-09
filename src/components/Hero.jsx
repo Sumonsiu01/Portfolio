@@ -5,7 +5,6 @@ import MyProfile from "../assets/MyProfile.jpg";
 const Hero = () => {
   return (
     <section className="relative w-full h-screen mx-auto overflow-hidden bg-[#0f172a]">
-
       {/* Background glow */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-purple-600 opacity-30 blur-[120px]" />
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-indigo-500 opacity-30 blur-[120px]" />
@@ -13,7 +12,6 @@ const Hero = () => {
       <div
         className={`max-w-7xl mx-auto ${styles.paddingX} flex flex-col lg:flex-row items-center justify-between h-screen`}
       >
-
         {/* Left Content */}
         <motion.div
           initial={{ opacity: 0, x: -60 }}
@@ -27,8 +25,7 @@ const Hero = () => {
 
           <p className={`${styles.heroSubText} mt-6 text-gray-300 max-w-xl`}>
             Software Engineer & AI Enthusiast
-            <br />
-            I build scalable web applications using
+            <br />I build scalable web applications using
             <span className="text-[#915EFF]"> React, Django & AI</span>.
           </p>
 
@@ -36,6 +33,9 @@ const Hero = () => {
           <div className="mt-10 flex gap-5 justify-center lg:justify-start">
             <a
               href="/cv.pdf"
+              target="_blank" // new tab খুলবে
+              rel="noopener noreferrer"
+              download
               className="px-7 py-3 bg-[#915EFF] text-white rounded-xl font-medium hover:scale-105 transition"
             >
               Download CV
@@ -68,7 +68,6 @@ const Hero = () => {
             <div className="absolute inset-0 rounded-full border-2 border-purple-500 animate-ping opacity-20"></div>
           </div>
         </motion.div>
-
       </div>
     </section>
   );
