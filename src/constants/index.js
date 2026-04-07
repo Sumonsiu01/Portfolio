@@ -1,4 +1,6 @@
 import {
+  redis,
+  celery,
   ecommerce,
   cp,
   mysql,
@@ -111,13 +113,23 @@ const technologies = [
     icon: tailwind,
   },
   {
-    name: "CI/CD",
+    name: "Github Action",
     icon: Ci,
   },
   {
     name: "Docker",
     icon:docker,
   },
+  {
+    name: "Redis",
+    icon:redis,
+  },
+  {
+    name: "Celery",
+    icon:celery,
+  },
+
+
   /* {
     name: "MongoDB",
     icon: mongodb,

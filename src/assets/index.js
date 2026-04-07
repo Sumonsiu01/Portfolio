@@ -44,9 +44,13 @@ import aston from "./aston.png"
 import NEUB from "./NEUB.png"
 import cp from "./cp.png"
 import ecommerce from "./ecommerce.png"
+import celery from "./celery.png"
+import redis from "./redis.png"
 
 
 export {
+  celery,
+  redis,
   ecommerce,
   cp,
   flask,
