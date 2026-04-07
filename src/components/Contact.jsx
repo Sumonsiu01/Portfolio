@@ -1,13 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { styles } from "../styles";
+import { FaUser, FaPhone, FaEnvelope, FaLinkedin, FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 const contactDetails = [
-  { type: "Name", value: "Sumon Ahmed" },
-  { type: "Phone", value: "+44 7756 020640" },
-  { type: "Email", value: "selimalsumon@gmail.com" },
-  { type: "LinkedIn", value: "https://www.linkedin.com/in/sumon-ahmed1999" },
-  { type: "GitHub", value: "https://github.com/Sumonsiu01" },
+  { type: "Name", value: "Sumon Ahmed", icon: <FaUser className="text-purple-500" /> },
+  { type: "Phone", value: "+44 7756 020640", icon: <FaPhone className="text-blue-500" />, link: "tel:+447756020640" },
+  { type: "Email", value: "selimalsumon@gmail.com", icon: <FaEnvelope className="text-red-500" />, link: "mailto:selimalsumon@gmail.com" },
+  { type: "LinkedIn", value: "LinkedIn Profile", displayValue: "sumon-ahmed1999", icon: <FaLinkedin className="text-blue-600" />, link: "https://www.linkedin.com/in/sumon-ahmed1999" },
+  { type: "GitHub", value: "GitHub Profile", displayValue: "Sumonsiu01", icon: <FaGithub className="text-gray-400" />, link: "https://github.com/Sumonsiu01" },
 ];
 
 const ContactList = () => {
@@ -19,7 +20,7 @@ const ContactList = () => {
       <div className="max-w-7xl mx-auto px-6 sm:px-16 relative z-10">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
+          whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
           className="flex flex-col gap-2 mb-10 text-center sm:text-left"
         >
@@ -32,32 +33,33 @@ const ContactList = () => {
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.2, type: "spring", stiffness: 70, damping: 15 }}
-              whileHover={{ scale: 1.02, y: -3, boxShadow: "0 8px 25px rgba(0,0,0,0.5)" }}
-              className="flex flex-col md:flex-row md:items-center md:gap-4 bg-tertiary p-4 rounded-lg cursor-pointer"
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1, type: "spring", stiffness: 70, damping: 15 }}
+              whileHover={{ scale: 1.01, x: 5 }}
+              className="flex flex-col md:flex-row md:items-center gap-4 bg-[#1d1836]/50 backdrop-blur-sm p-5 rounded-2xl border border-white/5 shadow-xl transition-all group"
             >
-              <span className="font-bold text-white w-32">{item.type}:</span>
+              <div className="flex items-center w-32 shrink-0 font-bold text-white text-[15px]">
+                <span className="text-xl mr-3 opacity-80 group-hover:scale-110 transition-transform">
+                  {item.icon}
+                </span>
+                <span>{item.type}:</span>
+              </div>
 
-              {item.type === "Email" ? (
-                <a
-                  href={`mailto:${item.value}`}
-                  className="text-blue-400 underline hover:text-blue-300 break-all"
-                >
-                  {item.value}
-                </a>
-              ) : item.type === "LinkedIn" || item.type === "GitHub" ? (
-                <a
-                  href={item.value}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-400 underline break-all"
-                >
-                  {item.value}
-                </a>
-              ) : (
-                <span className="text-white">{item.value}</span>
-              )}
+              <div className="flex-1">
+                {item.link ? (
+                  <a
+                    href={item.link}
+                    target={item.type.includes("GitHub") || item.type.includes("LinkedIn") ? "_blank" : "_self"}
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-[#915EFF]/20 border border-white/10 hover:border-[#915EFF]/50 rounded-full text-blue-400 hover:text-white transition-all duration-300 text-[14px] md:text-[16px] font-medium tracking-wide group"
+                  >
+                    {item.displayValue || item.value}
+                    <FaExternalLinkAlt className="text-[10px] opacity-50 group-hover:opacity-100" />
+                  </a>
+                ) : (
+                  <span className="text-white font-medium ml-2">{item.value}</span>
+                )}
+              </div>
             </motion.div>
           ))}
         </div>

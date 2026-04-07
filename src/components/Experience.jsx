@@ -16,12 +16,18 @@ const ExperienceCard = ({ experience }) => {
   return (
     <VerticalTimelineElement
       contentStyle={{
-        background: "#1d1836",
+        background: "linear-gradient(90deg, #1d1836 0%, #151030 100%)", // Subtle gradient
         color: "#fff",
+        boxShadow: "0 4px 20px rgba(0, 0, 0, 0.3)",
+        border: "1px solid rgba(255, 255, 255, 0.1)", // Glassmorphism touch
+        borderRadius: "20px",
       }}
-      contentArrowStyle={{ borderRight: "7px solid  #232631" }}
+      contentArrowStyle={{ borderRight: "7px solid #232631" }}
       date={experience.date}
-      iconStyle={{ background: experience.iconBg }}
+      iconStyle={{ 
+        background: experience.iconBg,
+        boxShadow: `0 0 0 4px #232631, inset 0 2px 0 rgba(0,0,0,.08), 0 3px 0 4px rgba(0,0,0,.05)` // Custom shadow for icon
+      }}
       icon={
         <div className='flex justify-center items-center w-full h-full'>
           <img
@@ -33,9 +39,9 @@ const ExperienceCard = ({ experience }) => {
       }
     >
       <div>
-        <h3 className='text-white text-[24px] font-bold'>{experience.title}</h3>
+        <h3 className='text-white text-[22px] font-bold tracking-wider'>{experience.title}</h3>
         <p
-          className='text-secondary text-[16px] font-semibold'
+          className='text-blue-400 text-[16px] font-bold' // Changed to blue for better visibility
           style={{ margin: 0 }}
         >
           {experience.company_name}
@@ -46,7 +52,7 @@ const ExperienceCard = ({ experience }) => {
         {experience.points.map((point, index) => (
           <li
             key={`experience-point-${index}`}
-            className='text-white-100 text-[14px] pl-1 tracking-wider'
+            className='text-gray-300 text-[14px] pl-1 tracking-wide leading-relaxed'
           >
             {point}
           </li>
@@ -61,15 +67,15 @@ const Experience = () => {
     <>
       <motion.div variants={textVariant()}>
         <p className={`${styles.sectionSubText} text-center`}>
-          What I have done so far
+          Recognitions & Leadership
         </p>
         <h2 className={`${styles.sectionHeadText} text-center`}>
-          Award & Co-Curricular Activity
+          Awards & Activities.
         </h2>
       </motion.div>
 
       <div className='mt-20 flex flex-col'>
-        <VerticalTimeline>
+        <VerticalTimeline lineColor="#915EFF"> {/* Line-ta tor primary purple color-er kora hoyeche */}
           {experiences.map((experience, index) => (
             <ExperienceCard
               key={`experience-${index}`}

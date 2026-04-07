@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-
-import { styles } from "../styles";
+import { motion, AnimatePresence } from "framer-motion";
 import { navLinks } from "../constants";
-import {logo, menu, close, Mylogo,NameLogo} from "../assets";
+import { menu, close } from "../assets";
 
 const Navbar = () => {
   const [active, setActive] = useState("");
@@ -12,79 +10,79 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      if (scrollTop > 100) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(window.scrollY > 20);
     };
-
     window.addEventListener("scroll", handleScroll);
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <nav
-      className={`${
-        styles.paddingX
-      } w-full flex items-center py-5 fixed top-0 z-20 ${
-        scrolled ? "bg-primary" : "bg-transparent"
-      }`}
-    >
-      <div className='w-full flex justify-between items-center max-w-7xl mx-auto'>
-        <Link
-          to='/'
-          className='flex items-center gap-2'
-          onClick={() => {
-            setActive("");
-            window.scrollTo(0, 0);
-          }}
-        >
-          <img src={Mylogo} alt='logo' className='w-9 h-9 object-contain' />
-          <p className='text-white text-[18px] font-bold cursor-pointer flex '>
-            Sumon &nbsp;
-            <span className='sm:block hidden'></span>
-          </p>
-        </Link>
-
-        <ul className='list-none hidden sm:flex flex-row gap-10'>
+    // top-2 use kora hoyeche jate ekdom mathay thake
+    <nav className="fixed top-2 w-full z-50 flex justify-center px-6 transition-all duration-300">
+      <motion.div
+        initial={{ y: -20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        // py-2.5 use kora hoyeche height ektu komanor jonno
+        className={`flex items-center justify-between gap-10 px-8 py-2.5 rounded-full border border-white/10 transition-all duration-500 ${
+          scrolled 
+            ? "bg-[#050816]/70 backdrop-blur-xl shadow-2xl w-full max-w-xl" 
+            : "bg-transparent w-full max-w-4xl"
+        }`}
+      >
+        {/* Navigation Links */}
+        <ul className="list-none hidden sm:flex flex-row items-center justify-center w-full gap-10">
           {navLinks.map((nav) => (
-            <li
-              key={nav.id}
-              className={`${
-                active === nav.title ? "text-white" : "text-secondary"
-              } hover:text-white text-[18px] font-medium cursor-pointer`}
-              onClick={() => setActive(nav.title)}
-            >
-              <a href={`#${nav.id}`}>{nav.title}</a>
+            <li key={nav.id} className="relative group">
+              <a
+                href={`#${nav.id}`}
+                onClick={() => setActive(nav.title)}
+                className={`${
+                  active === nav.title ? "text-white" : "text-secondary"
+                } text-[13px] font-semibold tracking-[2px] uppercase hover:text-white transition-all duration-300`}
+              >
+                {nav.title}
+              </a>
+              
+              {/* Thinner Glow Indicator */}
+              {active === nav.title && (
+                <motion.div 
+                  layoutId="activeGlow"
+                  className="absolute -bottom-2 left-0 right-0 h-[1.5px] bg-gradient-to-r from-transparent via-blue-500 to-transparent shadow-[0_0_10px_#3b82f6]"
+                />
+              )}
             </li>
           ))}
         </ul>
 
-        <div className='sm:hidden flex flex-1 justify-end items-center'>
+        {/* Mobile Menu Icon */}
+        <div className="sm:hidden flex flex-1 justify-end items-center">
           <img
             src={toggle ? close : menu}
-            alt='menu'
-            className='w-[28px] h-[28px] object-contain'
+            alt="menu"
+            className="w-6 h-6 object-contain cursor-pointer transition-transform"
             onClick={() => setToggle(!toggle)}
           />
+        </div>
+      </motion.div>
 
-          <div
-            className={`${
-              !toggle ? "hidden" : "flex"
-            } p-6 black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl`}
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {toggle && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            className="absolute top-16 left-6 right-6 p-8 bg-[#050816]/95 backdrop-blur-3xl border border-white/10 rounded-[24px] z-40 shadow-2xl"
           >
-            <ul className='list-none flex justify-end items-start flex-1 flex-col gap-4'>
+            <ul className="list-none flex flex-col items-center gap-6">
               {navLinks.map((nav) => (
                 <li
                   key={nav.id}
-                  className={`font-poppins font-medium cursor-pointer text-[16px] ${
-                    active === nav.title ? "text-white" : "text-secondary"
+                  className={`text-[18px] font-bold tracking-widest uppercase ${
+                    active === nav.title ? "text-blue-500" : "text-white"
                   }`}
                   onClick={() => {
-                    setToggle(!toggle);
+                    setToggle(false);
                     setActive(nav.title);
                   }}
                 >
@@ -92,9 +90,9 @@ const Navbar = () => {
                 </li>
               ))}
             </ul>
-          </div>
-        </div>
-      </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };
