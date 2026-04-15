@@ -1,4 +1,6 @@
 import {
+
+  disease,
   redis,
   celery,
   ecommerce,
@@ -281,6 +283,20 @@ const projects = [
     ],
     image: ecommerce,
     source_code_link: "https://github.com/Sumonsiu01/E-Commerse",
+    live_link: "https://your-tripguide-live-link.com",
+  },
+  {
+    name: "Mr.Doctor",
+    description:
+      "Ai Disease Predictor & Medicine Suggussion",
+    tags: [
+      { name: "Python", color: "green-text-gradient" },
+      { name: "Django", color: "blue-text-gradient" },
+      { name: "Javascript", color: "green-text-gradient" },
+      { name: "MachineLearning", color: "pink-text-gradient" },
+    ],
+    image: disease,
+    source_code_link: "https://github.com/Sumonsiu01/dieseasePrediction",
     live_link: "https://your-tripguide-live-link.com",
   },
 ];

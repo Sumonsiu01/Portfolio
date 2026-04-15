@@ -46,9 +46,11 @@ import cp from "./cp.png"
 import ecommerce from "./ecommerce.png"
 import celery from "./celery.png"
 import redis from "./redis.png"
+import disease from "./disease.jpeg"
 
 
 export {
+  disease,
   celery,
   redis,
   ecommerce,
