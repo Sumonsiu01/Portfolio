@@ -15,11 +15,11 @@ import mongodb from "./tech/mongodb.png";
 import reactjs from "./tech/reactjs.png";
 import tailwind from "./tech/tailwind.png";
 import threejs from "./tech/threejs.svg";
-import django from "./tech/django-python.png";
+import django from "./tech/django-python.jpg";
 import Ci from "./tech/CiCd.png";
-import mysql from "./tech/mysql.png";
+import mysql from "./tech/mysql.jpg";
 import docker from "./tech/docker.png";
-import drf from "./tech/drf.png";
+import drf from "./tech/drf.jpg";
 import flask from "./tech/flask.png";
 
 import meta from "./company/meta.png";
@@ -47,9 +47,13 @@ import ecommerce from "./ecommerce.png"
 import celery from "./celery.png"
 import redis from "./redis.png"
 import disease from "./disease.jpeg"
+import ehome from "./ehome.png"
+import food from "./food.png"
 
 
 export {
+  food,
+  ehome,
   disease,
   celery,
   redis,

@@ -1,5 +1,6 @@
 import {
-
+  food,
+  ehome,
   disease,
   redis,
   celery,
@@ -185,7 +186,7 @@ const experiences = [
     iconBg: "#383E56",
     date: "January-2020(ranked-115th)",
     points: [
-      "First appearance in ICPC Dhaka Reginal & Solved 3 problems",
+      "First appearance in ICPC Dhaka Reginal & Solved 2 problems",
     ],
   },
   {
@@ -195,7 +196,7 @@ const experiences = [
     iconBg: "#E6DEDD",
     date: "December-2024(ranked-91th)",
     points: [
-      "Last appearance & My team solved there 3 problems & ranked 91th ",
+      "Second appearance in ICPC Dhaka Reginal & Solved 4 problems",
     ],
   },
   {
@@ -205,7 +206,7 @@ const experiences = [
     iconBg: "#383E56",
     date: "November-2024(ranked 7th)",
     points: [
-      "Metropolitan University IUPC & We Ranked 7th.We solved 5 Problems",
+      "I have participated in the Intra University Programming Contest (IUPC) organized by Metropolitan University, and my team secured the 7th position in this competition.",
     ],
   },
   {
@@ -215,7 +216,7 @@ const experiences = [
     iconBg: "#E6DEDD",
     date: "5* rated",
     points: [
-      "I started problem-solving at the beginning of my university life and have solved a significant number of problems since then.",
+      "I have achieved a 5-star rating on HackerRank, demonstrating my proficiency in various programming challenges and algorithms.",
     ],
   },
   {
@@ -225,17 +226,17 @@ const experiences = [
     iconBg: "#E6DEDD",
     date: "2nd runners-up",
     points: [
-      "My last Math Olympiad",
+      "This olympiad was organized by my university, and I secured the 2nd runners-up position in this competition.",
     ],
   },
   {
-    title: "Competitive Porgramming Instructor",
+    title: "Competitive Programming Instructor",
     company_name: " ",
     icon: cp,
     iconBg: "#E6DEDD",
     date: "Instructor",
     points: [
-      "Led multiple programming workshops at my university, mentoring more than 5,000 students in problem solving, algorithms, and programming fundamentals.",
+      "Led multiple programming workshops at my university, mentoring my juniors in problem solving, algorithms, and programming fundamentals.",
     ],
   },
 ];
@@ -299,5 +300,37 @@ const projects = [
     source_code_link: "https://github.com/Sumonsiu01/dieseasePrediction",
     live_link: "https://your-tripguide-live-link.com",
   },
+ {
+    name: "Food Online",
+    description:
+      "A food delivery web application built with Django and React, allowing users to order food online from various restaurants. The application features a user-friendly interface, real-time order tracking, and secure payment integration.",
+    tags: [
+      { name: "Python", color: "green-text-gradient" },
+      { name: "Django", color: "blue-text-gradient" },
+      { name: "Javascript", color: "green-text-gradient" },
+      { name: "MachineLearning", color: "pink-text-gradient" },
+    ],
+    image: food,
+    source_code_link: "https://github.com/Sumonsiu01/foodonline",
+    live_link: "https://your-tripguide-live-link.com",
+  },
+
+  {
+    name: "IntellLearn",
+    description:
+      "A comprehensive online learning platform that leverages AI to provide personalized learning experiences. Built with Django and React, it offers a wide range of courses, interactive quizzes, and progress tracking features.",
+    tags: [
+      { name: "Python", color: "green-text-gradient" },
+      { name: "Django", color: "blue-text-gradient" },
+      { name: "Reactjs", color: "green-text-gradient" },
+      { name: "DRF", color: "pink-text-gradient" },
+      { name:"geminiAPi", color:"blue-text-gradient"}
+    ],
+    image: ehome,
+    source_code_link: "https://github.com/Sumonsiu01/Elearning/tree/master",
+    live_link: "https://your-tripguide-live-link.com",
+  },
+ 
+
 ];
 export { services, technologies, experiences, testimonials, projects };
