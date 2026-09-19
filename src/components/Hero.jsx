@@ -1,14 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { 
-  FaTerminal, 
-  FaFileDownload, 
-  FaEnvelope, 
-  FaShieldAlt, 
-  FaCode, 
-  FaServer, 
-  FaMicrochip 
-} from "react-icons/fa";
+import { FaTerminal, FaFileDownload, FaEnvelope, FaShieldAlt } from "react-icons/fa";
 import { styles } from "../styles";
 import MyProfile from "../assets/MyProfile.jpg";
 
@@ -48,7 +40,7 @@ const Hero = () => {
   }, [displayText, isDeleting, roleIndex]);
 
   return (
-    <section className="relative w-full min-h-screen mx-auto overflow-hidden bg-[#030712] font-mono flex flex-col justify-between pt-24 pb-12 select-none">
+    <section className="relative w-full min-h-screen mx-auto overflow-hidden bg-[#030712] font-mono flex items-center justify-center select-none">
       {/* Background Cyber Mesh & Dynamic Beam Glows */}
       <div 
         className="absolute inset-0 opacity-[0.13] pointer-events-none"
@@ -62,7 +54,7 @@ const Hero = () => {
       <div className="absolute bottom-1/3 right-1/4 w-[500px] h-[500px] bg-indigo-600/10 rounded-full blur-[180px] pointer-events-none" />
 
       {/* Main Cockpit Display */}
-      <div className={`max-w-7xl mx-auto ${styles.paddingX} w-full my-auto relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center`}>
+      <div className={`max-w-7xl mx-auto ${styles.paddingX} w-full py-24 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center`}>
         
         {/* Left Column: Command & Identity Terminal (7 Columns) */}
         <motion.div
@@ -172,53 +164,6 @@ const Hero = () => {
 
           </div>
         </motion.div>
-      </div>
-
-      {/* Bottom Live System Telemetry Strip */}
-      <div className={`max-w-7xl mx-auto ${styles.paddingX} w-full relative z-10 pt-8`}>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 border-t border-white/10 pt-6">
-          
-          <div className="p-3 rounded-xl bg-white/[0.02] border border-white/5 flex items-center gap-3">
-            <div className="p-2 rounded-lg bg-cyan-950/40 text-cyan-400 text-sm">
-              <FaCode />
-            </div>
-            <div>
-              <span className="text-[10px] text-slate-500 block">PRIMARY_STACK</span>
-              <span className="text-xs font-bold text-slate-200">React / Django</span>
-            </div>
-          </div>
-
-          <div className="p-3 rounded-xl bg-white/[0.02] border border-white/5 flex items-center gap-3">
-            <div className="p-2 rounded-lg bg-cyan-950/40 text-cyan-400 text-sm">
-              <FaServer />
-            </div>
-            <div>
-              <span className="text-[10px] text-slate-500 block">DATABASE_ENGINE</span>
-              <span className="text-xs font-bold text-slate-200">PostgreSQL / Redis</span>
-            </div>
-          </div>
-
-          <div className="p-3 rounded-xl bg-white/[0.02] border border-white/5 flex items-center gap-3">
-            <div className="p-2 rounded-lg bg-cyan-950/40 text-emerald-400 text-sm">
-              <FaShieldAlt />
-            </div>
-            <div>
-              <span className="text-[10px] text-slate-500 block">SECURITY_LAYER</span>
-              <span className="text-xs font-bold text-emerald-400">OWASP Hardened</span>
-            </div>
-          </div>
-
-          <div className="p-3 rounded-xl bg-white/[0.02] border border-white/5 flex items-center gap-3">
-            <div className="p-2 rounded-lg bg-cyan-950/40 text-cyan-400 text-sm">
-              <FaMicrochip />
-            </div>
-            <div>
-              <span className="text-[10px] text-slate-500 block">SYSTEM_LATENCY</span>
-              <span className="text-xs font-bold text-cyan-300">0.24ms [Optimal]</span>
-            </div>
-          </div>
-
-        </div>
       </div>
     </section>
   );
