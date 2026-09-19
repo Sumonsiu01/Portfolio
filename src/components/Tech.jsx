@@ -1,77 +1,92 @@
-import React, { Suspense } from "react";
+import React, { useState, useMemo } from "react";
 import { motion } from "framer-motion";
-import { BallCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { technologies } from "../constants";
 
+const CATEGORIES = ["ALL", "BACKEND", "FRONTEND", "DATABASE", "TOOLS"];
+
 const Tech = () => {
+  const [activeCategory, setActiveCategory] = useState("ALL");
+
+  const filteredTech = useMemo(() => {
+    if (!technologies) return [];
+    if (activeCategory === "ALL") return technologies;
+    return technologies.filter(
+      (t) => t.category?.toUpperCase() === activeCategory
+    );
+  }, [activeCategory]);
+
+  if (!technologies || technologies.length === 0) return null;
+
   return (
-    <section className="relative py-20 overflow-hidden">
-      {/* Background Decorative Blobs */}
-      <div className="absolute top-0 -left-10 w-72 h-72 bg-purple-500/10 rounded-full blur-[120px]" />
-      <div className="absolute bottom-0 -right-10 w-72 h-72 bg-blue-500/10 rounded-full blur-[120px]" />
+    <div className="relative w-full py-8 font-mono select-none">
+      {/* Background Soft Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[250px] bg-cyan-600/10 rounded-full blur-[140px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6">
-        <motion.div 
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-20"
-        >
-          <span className="text-blue-400 text-sm font-mono tracking-[0.3em] uppercase">Technical Proficiency</span>
-          <h2 className="text-5xl md:text-6xl font-extrabold text-white mt-4 tracking-tight">
-            My <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Tech Stack</span>
-          </h2>
-        </motion.div>
-
-        <div className="flex flex-wrap justify-center gap-12">
-          {technologies.map((tech, index) => (
-            <motion.div
-              key={tech.name}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ 
-                duration: 0.5, 
-                delay: index * 0.1,
-                type: "spring",
-                stiffness: 100 
-              }}
-              whileHover={{ 
-                y: -15,
-                transition: { duration: 0.3 }
-              }}
-              className="relative group w-32 h-32 md:w-40 md:h-40"
-            >
-              {/* Animated Ring Around the Icon */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-600 to-purple-600 opacity-0 group-hover:opacity-40 blur-md transition-all duration-500 scale-110 group-hover:animate-pulse" />
-              
-              {/* Glass Card */}
-              <div className="relative w-full h-full flex flex-col items-center justify-center bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl shadow-2xl transition-all duration-300 group-hover:bg-white/10 group-hover:border-white/20">
-                
-                {/* 3D Ball Container */}
-                <div className="w-20 h-20 md:w-24 md:h-24 cursor-grab active:cursor-grabbing">
-                  <Suspense fallback={<div className="w-full h-full bg-white/5 rounded-full animate-spin-slow" />}>
-                    <BallCanvas icon={tech.icon} />
-                  </Suspense>
-                </div>
-
-                {/* Floating Tooltip Name */}
-                <div className="absolute -bottom-10 opacity-0 group-hover:opacity-100 group-hover:-bottom-12 transition-all duration-300">
-                  <span className="px-4 py-1 rounded-full bg-blue-600 text-white text-xs font-bold whitespace-nowrap shadow-lg">
-                    {tech.name}
-                  </span>
-                </div>
-              </div>
-
-              {/* Dynamic Glow Bottom */}
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/2 h-1 bg-blue-500 blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500" />
-            </motion.div>
-          ))}
-        </div>
+      {/* Header */}
+      <div className="text-center mb-8">
+        <span className="text-cyan-400 text-xs tracking-[0.2em] uppercase">
+          // TECH_ECOSYSTEM
+        </span>
+        <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight mt-1">
+          CORE <span className="text-cyan-400">STACK</span>
+        </h2>
       </div>
-    </section>
+
+      {/* Category Pills */}
+      <div className="flex items-center justify-center gap-2 overflow-x-auto pb-4 no-scrollbar mb-8">
+        {CATEGORIES.map((cat) => (
+          <button
+            key={cat}
+            type="button"
+            onClick={() => setActiveCategory(cat)}
+            className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold tracking-wider transition-all duration-200 border ${
+              activeCategory === cat
+                ? "bg-cyan-950/70 border-cyan-400 text-cyan-300 shadow-[0_0_15px_rgba(6,182,212,0.25)]"
+                : "bg-[#070c18]/60 border-white/5 text-slate-400 hover:text-white hover:border-white/20"
+            }`}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+
+      {/* Minimal Tech Grid */}
+      <motion.div 
+        layout
+        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3.5 relative z-10 max-w-5xl mx-auto"
+      >
+        {filteredTech.map((tech) => (
+          <motion.div
+            layout
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 0.2 }}
+            key={tech.name}
+            className="group relative p-4 rounded-xl border border-white/5 bg-[#070c18]/70 hover:border-cyan-500/40 hover:bg-cyan-950/20 backdrop-blur-md transition-all duration-200 flex flex-col items-center justify-center gap-3"
+          >
+            {/* Icon */}
+            <div className="w-12 h-12 flex items-center justify-center">
+              {tech.icon && (
+                <img
+                  src={tech.icon}
+                  alt={tech.name}
+                  className="w-full h-full object-contain filter grayscale-[30%] group-hover:grayscale-0 group-hover:scale-110 transition-all duration-200 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
+                  loading="lazy"
+                />
+              )}
+            </div>
+
+            {/* Name */}
+            <span className="text-xs font-semibold text-slate-300 group-hover:text-cyan-300 transition-colors tracking-wide truncate max-w-full">
+              {tech.name}
+            </span>
+          </motion.div>
+        ))}
+      </motion.div>
+    </div>
   );
 };
 
-export default SectionWrapper(Tech, "");
+export default SectionWrapper(Tech, "tech");

@@ -1,160 +1,206 @@
 import React, { useState } from "react";
-import Tilt from "react-parallax-tilt";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaPlay, FaGithub } from "react-icons/fa";
-
-import { styles } from "../styles";
-import { github } from "../assets";
+import { FaGithub, FaExternalLinkAlt, FaPlay, FaTerminal, FaShieldAlt, FaMicrochip } from "react-icons/fa";
 import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
-import { fadeIn, textVariant } from "../utils/motion";
-
-/* ================= PROJECT CARD ================= */
-
-const ProjectCard = ({
-  index,
-  name,
-  description,
-  tags,
-  image,
-  source_code_link,
-  video_link,
-}) => {
-  const [open, setOpen] = useState(false);
-
-  return (
-    <>
-      <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
-        <Tilt
-          tiltMaxAngleX={10}      // Norachora komano hoyeche (Agey 45 chilo)
-          tiltMaxAngleY={10}      // Norachora komano hoyeche
-          perspective={1000}      // Depth thik rakha hoyeche
-          scale={1.02}            // Halka zoom hobe
-          transitionSpeed={1500}  // Movement onek smooth kora hoyeche
-          glareEnable={true}      // Subtle glass effect
-          glareMaxOpacity={0.1}   // Beshi brightness hobe na
-          className="bg-tertiary p-5 rounded-3xl sm:w-[360px] w-full border border-white/5 h-full shadow-2xl transition-all duration-300 hover:border-[#915EFF]/40"
-        >
-          <div className="relative w-full h-[230px] group overflow-hidden rounded-2xl">
-            <img
-              src={image}
-              alt={name}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-            />
-
-            {/* HOVER OVERLAY */}
-            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-              {/* GitHub */}
-              <div
-                onClick={() => window.open(source_code_link, "_blank")}
-                className="w-11 h-11 rounded-full bg-[#1a1a1a]/90 backdrop-blur-sm flex justify-center items-center cursor-pointer hover:scale-110 transition-transform border border-white/10"
-              >
-                <img src={github} alt="github" className="w-1/2 h-1/2 object-contain" />
-              </div>
-
-              {/* Video Play */}
-              {video_link && (
-                <div
-                  onClick={() => setOpen(true)}
-                  className="w-11 h-11 rounded-full bg-[#915EFF]/90 backdrop-blur-sm flex justify-center items-center cursor-pointer hover:scale-110 transition-transform border border-white/10"
-                >
-                  <FaPlay className="text-white text-xs ml-0.5" />
-                </div>
-              )}
-            </div>
-          </div>
-
-          <div className="mt-5">
-            <h3 className="text-white font-bold text-[24px] tracking-tight">{name}</h3>
-            <p className="mt-2 text-secondary text-[14px] leading-relaxed line-clamp-3">
-              {description}
-            </p>
-          </div>
-
-          <div className="mt-4 flex flex-wrap gap-2">
-            {tags.map((tag) => (
-              <span
-                key={`${name}-${tag.name}`}
-                className={`text-[12px] font-mono px-2 py-1 rounded-md bg-white/5 border border-white/10 ${tag.color}`}
-              >
-                #{tag.name}
-              </span>
-            ))}
-          </div>
-        </Tilt>
-      </motion.div>
-
-      {/* ================= VIDEO MODAL ================= */ }
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/90 backdrop-blur-sm flex items-center justify-center z-[100] p-4"
-          >
-            <motion.div
-              initial={{ scale: 0.9, y: 20 }}
-              animate={{ scale: 1, y: 0 }}
-              exit={{ scale: 0.9, y: 20 }}
-              className="relative w-full max-w-4xl aspect-video bg-[#1d1836] rounded-3xl overflow-hidden shadow-2xl"
-            >
-              <button
-                onClick={() => setOpen(false)}
-                className="absolute top-4 right-5 text-white/60 hover:text-white text-2xl z-20 transition-colors"
-              >
-                ✕
-              </button>
-
-              <iframe
-                width="100%"
-                height="100%"
-                src={video_link}
-                title="Project Demo"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="w-full h-full"
-              ></iframe>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </>
-  );
-};
-
-/* ================= WORKS SECTION ================= */
 
 const Works = () => {
+  const [selectedProject, setSelectedProject] = useState(projects[0] || null);
+  const [isPlayingVideo, setIsPlayingVideo] = useState(false);
+
+  if (!projects || projects.length === 0) return null;
+
+  const handleSelect = (project) => {
+    setSelectedProject(project);
+    setIsPlayingVideo(false);
+  };
+
   return (
-    <>
-      <motion.div variants={textVariant()}>
-        <p className={`${styles.sectionSubText}`}>My work</p>
-        <h2 className={`${styles.sectionHeadText}`}>Projects.</h2>
-      </motion.div>
+    <div className="relative w-full -mt-10 sm:-mt-16 pt-0 pb-16 font-mono select-none">
+      {/* Background Soft Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-cyan-600/10 rounded-full blur-[180px] pointer-events-none" />
 
-      <div className="w-full flex">
-        <motion.p
-          variants={fadeIn("", "", 0.1, 1)}
-          className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]"
-        >
-          Following projects showcase my skills and experience through real-world examples. 
-          Each project is a reflection of my journey in **Cybersecurity and Web Development**, 
-          complete with source code and video demonstrations.
-        </motion.p>
+      {/* Header */}
+      <div className="text-center mb-10">
+        <span className="text-cyan-400 text-xs tracking-[0.25em] uppercase">
+          // COMMAND_OS // ARCHIVE_V2
+        </span>
+        <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight mt-1">
+          SYSTEM <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-teal-300 to-indigo-500">DEPLOYMENTS</span>
+        </h2>
       </div>
 
-      <div className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
-        {projects.map((project, index) => (
-          <ProjectCard
-            key={`project-${index}`}
-            index={index}
-            {...project}
-          />
-        ))}
+      {/* Main Command Console (Split-Screen) */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 max-w-7xl mx-auto relative z-10">
+        
+        {/* Left: Scrollable Mission Manifest (5 Columns) */}
+        <div className="lg:col-span-5 flex flex-col gap-2.5 max-h-[540px] overflow-y-auto pr-2 custom-scrollbar">
+          <div className="text-[11px] text-slate-500 pb-2 border-b border-white/10 flex items-center justify-between">
+            <span>INDEXED_REGISTRY ({projects.length})</span>
+            <span className="text-cyan-400 flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+              HOT_SWAP_ACTIVE
+            </span>
+          </div>
+
+          {projects.map((project, index) => {
+            const isSelected = selectedProject?.name === project.name;
+            return (
+              <div
+                key={project.name || index}
+                onClick={() => handleSelect(project)}
+                className={`p-4 rounded-xl border cursor-pointer transition-all duration-200 relative group flex items-center justify-between gap-4 ${
+                  isSelected
+                    ? "bg-cyan-950/70 border-cyan-400/80 shadow-[0_0_20px_rgba(6,182,212,0.25)]"
+                    : "bg-[#070c18]/60 border-white/5 hover:border-white/20 hover:bg-[#0c1322]"
+                }`}
+              >
+                <div className="min-w-0">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-[10px] text-slate-500 font-bold">
+                      0{index + 1} //
+                    </span>
+                    <h3 className={`text-sm font-bold truncate transition-colors ${
+                      isSelected ? "text-cyan-300" : "text-slate-300 group-hover:text-white"
+                    }`}>
+                      {project.name}
+                    </h3>
+                  </div>
+
+                  {/* Micro Tech Tags */}
+                  <div className="flex flex-wrap gap-1.5 pt-1">
+                    {project.tags?.slice(0, 3).map((tag, tIdx) => (
+                      <span key={tIdx} className="text-[9px] px-1.5 py-0.5 rounded bg-white/5 text-slate-400">
+                        #{tag.name}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="shrink-0 flex items-center">
+                  <span className={`w-2 h-2 rounded-full ${isSelected ? "bg-cyan-400 animate-pulse shadow-[0_0_8px_#22d3ee]" : "bg-slate-700"}`} />
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Right: Active Hologram Cockpit (7 Columns) */}
+        <div className="lg:col-span-7">
+          <div className="rounded-2xl border border-cyan-500/30 bg-[#070c18]/95 p-6 backdrop-blur-2xl shadow-2xl flex flex-col justify-between min-h-[540px]">
+            
+            {/* Cockpit Header */}
+            <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
+              <div className="flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80" />
+                <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
+                <span className="text-[10px] text-cyan-400 ml-2">// TELEMETRY_VIEW</span>
+              </div>
+              
+              <div className="flex items-center gap-2">
+                {selectedProject?.source_code_link && (
+                  <a
+                    href={selectedProject.source_code_link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-xs text-slate-300 border border-white/10 transition-colors"
+                  >
+                    <FaGithub className="text-xs" /> Code
+                  </a>
+                )}
+                {selectedProject?.live_link && (
+                  <a
+                    href={selectedProject.live_link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 text-xs text-cyan-300 border border-cyan-500/30 transition-colors"
+                  >
+                    <FaExternalLinkAlt className="text-[10px]" /> Live
+                  </a>
+                )}
+              </div>
+            </div>
+
+            {/* Dynamic Viewport */}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={selectedProject?.name}
+                initial={{ opacity: 0, scale: 0.98 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                className="flex-1 flex flex-col justify-between gap-4"
+              >
+                {/* Media Screen */}
+                <div className="relative w-full h-56 sm:h-64 rounded-xl overflow-hidden bg-black/60 border border-white/10 group">
+                  {isPlayingVideo ? (
+                    <iframe
+                      src={`${selectedProject.video_link}?autoplay=1`}
+                      title={selectedProject.name}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="w-full h-full border-0"
+                    />
+                  ) : (
+                    <>
+                      <img
+                        src={selectedProject.image}
+                        alt={selectedProject.name}
+                        className="w-full h-full object-cover"
+                      />
+                      {selectedProject.video_link && (
+                        <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px] flex items-center justify-center">
+                          <button
+                            type="button"
+                            onClick={() => setIsPlayingVideo(true)}
+                            className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-cyan-400 text-slate-950 font-bold text-xs uppercase tracking-wider hover:scale-105 active:scale-95 transition-all shadow-[0_0_20px_rgba(6,182,212,0.8)]"
+                          >
+                            <FaPlay className="text-[10px]" /> Run Simulation
+                          </button>
+                        </div>
+                      )}
+                    </>
+                  )}
+                </div>
+
+                {/* Info Block */}
+                <div>
+                  <h3 className="text-xl font-bold text-white tracking-wide">
+                    {selectedProject.name}
+                  </h3>
+                  <p className="mt-1.5 text-xs text-slate-400 font-sans leading-relaxed">
+                    {selectedProject.description}
+                  </p>
+                </div>
+
+                {/* Telemetry Matrix Specs */}
+                <div className="grid grid-cols-2 gap-2 text-[10px] pt-2 border-t border-white/5">
+                  <div className="p-2 rounded-lg bg-white/[0.02] border border-white/5">
+                    <span className="text-slate-500 block">PIPELINE</span>
+                    <span className="text-slate-200 font-semibold">PostgreSQL / REST APIs</span>
+                  </div>
+                  <div className="p-2 rounded-lg bg-white/[0.02] border border-white/5">
+                    <span className="text-slate-500 block">SECURITY_LAYER</span>
+                    <span className="text-emerald-400 font-semibold">RBAC & Token Validation</span>
+                  </div>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+
+            {/* Terminal Footer Indicator */}
+            <div className="mt-4 pt-3 border-t border-white/10 flex justify-between items-center text-[10px] text-slate-500">
+              <span className="flex items-center gap-1.5">
+                <FaShieldAlt className="text-cyan-400" /> INTEGRITY_CHECK: PASSED
+              </span>
+              <span className="text-cyan-400 font-mono">STATUS: PRODUCTION_READY</span>
+            </div>
+
+          </div>
+        </div>
+
       </div>
-    </>
+    </div>
   );
 };
 
