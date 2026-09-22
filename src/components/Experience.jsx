@@ -4,6 +4,7 @@ import {
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import { motion } from "framer-motion";
+import { FaAward, FaCalendarAlt } from "react-icons/fa";
 
 import "react-vertical-timeline-component/style.min.css";
 
@@ -16,45 +17,55 @@ const ExperienceCard = ({ experience }) => {
   return (
     <VerticalTimelineElement
       contentStyle={{
-        background: "linear-gradient(90deg, #1d1836 0%, #151030 100%)", // Subtle gradient
+        background: "rgba(7, 13, 26, 0.92)",
         color: "#fff",
-        boxShadow: "0 4px 20px rgba(0, 0, 0, 0.3)",
-        border: "1px solid rgba(255, 255, 255, 0.1)", // Glassmorphism touch
-        borderRadius: "20px",
+        boxShadow: "0 10px 30px -10px rgba(0, 0, 0, 0.5)",
+        border: "1px solid rgba(255, 255, 255, 0.08)",
+        borderRadius: "22px",
+        backdropFilter: "blur(16px)",
+        padding: "2rem",
       }}
-      contentArrowStyle={{ borderRight: "7px solid #232631" }}
-      date={experience.date}
+      contentArrowStyle={{ 
+        borderRight: "7px solid rgba(7, 13, 26, 0.92)" 
+      }}
+      date={
+        <span className="font-mono text-xs sm:text-sm text-sky-400 font-semibold tracking-wider flex items-center gap-1.5 lg:inline-flex">
+          <FaCalendarAlt className="text-xs opacity-75" />
+          {experience.date}
+        </span>
+      }
       iconStyle={{ 
-        background: experience.iconBg,
-        boxShadow: `0 0 0 4px #232631, inset 0 2px 0 rgba(0,0,0,.08), 0 3px 0 4px rgba(0,0,0,.05)` // Custom shadow for icon
+        background: experience.iconBg || "#070d1a",
+        boxShadow: "0 0 0 4px rgba(56, 189, 248, 0.3), inset 0 2px 0 rgba(0,0,0,.2), 0 4px 15px rgba(0,0,0,.4)",
+        border: "1px solid rgba(255, 255, 255, 0.15)"
       }}
       icon={
-        <div className='flex justify-center items-center w-full h-full'>
+        <div className="flex justify-center items-center w-full h-full">
           <img
             src={experience.icon}
             alt={experience.company_name}
-            className='w-[60%] h-[60%] object-contain'
+            className="w-[58%] h-[58%] object-contain"
           />
         </div>
       }
     >
-      <div>
-        <h3 className='text-white text-[22px] font-bold tracking-wider'>{experience.title}</h3>
-        <p
-          className='text-blue-400 text-[16px] font-bold' // Changed to blue for better visibility
-          style={{ margin: 0 }}
-        >
+      <div className="space-y-1">
+        <h3 className="text-white text-xl sm:text-2xl font-bold tracking-tight">
+          {experience.title}
+        </h3>
+        <p className="text-sky-400 font-medium text-sm sm:text-base !mt-0 font-mono">
           {experience.company_name}
         </p>
       </div>
 
-      <ul className='mt-5 list-disc ml-5 space-y-2'>
+      <ul className="mt-5 space-y-2.5 border-t border-white/5 pt-4">
         {experience.points.map((point, index) => (
           <li
             key={`experience-point-${index}`}
-            className='text-gray-300 text-[14px] pl-1 tracking-wide leading-relaxed'
+            className="text-slate-300 text-xs sm:text-sm leading-relaxed flex items-start gap-2.5 font-sans"
           >
-            {point}
+            <span className="h-1.5 w-1.5 rounded-full bg-sky-400 shrink-0 mt-2" />
+            <span>{point}</span>
           </li>
         ))}
       </ul>
@@ -64,18 +75,27 @@ const ExperienceCard = ({ experience }) => {
 
 const Experience = () => {
   return (
-    <>
-      <motion.div variants={textVariant()}>
-        <p className={`${styles.sectionSubText} text-center`}>
-          Recognitions & Leadership
-        </p>
-        <h2 className={`${styles.sectionHeadText} text-center`}>
-          Awards & Activities.
+    <div className="relative w-full py-8 font-sans select-text">
+      {/* Background Soft Glow */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-sky-600/[0.07] rounded-full blur-[160px] pointer-events-none" />
+
+      {/* Header */}
+      <motion.div variants={textVariant()} className="text-center mb-16">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-sky-500/20 bg-sky-950/20 text-sky-400 text-xs font-mono uppercase tracking-wider mb-3">
+          <FaAward className="text-sm" />
+          <span>Milestones & Leadership</span>
+        </div>
+        <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+          Awards & <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-400">Experience.</span>
         </h2>
+        <p className="mt-3 text-slate-400 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+          Key achievements, industry involvement, and leadership roles across academic and community initiatives.
+        </p>
       </motion.div>
 
-      <div className='mt-20 flex flex-col'>
-        <VerticalTimeline lineColor="#915EFF"> {/* Line-ta tor primary purple color-er kora hoyeche */}
+      {/* Timeline with unified sleek line */}
+      <div className="mt-12 flex flex-col relative z-10">
+        <VerticalTimeline lineColor="rgba(56, 189, 248, 0.2)">
           {experiences.map((experience, index) => (
             <ExperienceCard
               key={`experience-${index}`}
@@ -84,8 +104,8 @@ const Experience = () => {
           ))}
         </VerticalTimeline>
       </div>
-    </>
+    </div>
   );
 };
 
-export default SectionWrapper(Experience, "work");
+export default SectionWrapper(Experience, "experience");

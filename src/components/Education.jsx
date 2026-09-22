@@ -13,7 +13,7 @@ const educationData = [
     color: "from-blue-500/20 to-purple-600/20",
   },
   {
-    degree: "B.Sc in Computer Science",
+    degree: "B.Sc in Computer Science & Engineering",
     institution: "NEUB",
     year: "2020 - 2025",
     desc: "Foundation of Software Engineering, Algorithms, and Web Security.",
