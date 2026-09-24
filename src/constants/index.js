@@ -91,7 +91,7 @@ const technologies = [
     name: "JavaScript",
     icon: javascript,
   },
-   {
+  {
     name: "Django",
     icon: django,
   },
@@ -121,72 +121,31 @@ const technologies = [
   },
   {
     name: "Docker",
-    icon:docker,
+    icon: docker,
   },
   {
     name: "Redis",
-    icon:redis,
+    icon: redis,
   },
   {
     name: "Celery",
-    icon:celery,
+    icon: celery,
   },
-
-
-  /* {
-    name: "MongoDB",
-    icon: mongodb,
-  }, */
-  /* {
-    name: "Three JS",
-    icon: threejs,
-  }, */
   {
     name: "git",
     icon: git,
   },
-  /* {
-    name: "figma",
-    icon: figma,
-  }, */
- /*  {
-    name: "docker",
-    icon: docker,
-  }, */
 ];
 
 const experiences = [
-  /* {
-    
-    title: "Aston University London",
-    company_name: " ",
-    icon: aston,
-    iconBg: "#383E56",
-    date: "October 2025",
-    points: [
-      "Cyber Security Management",
-    ],
-  }, */
- /*  {
-    
-    title: "North East University Bangladesh",
-    company_name: " ",
-    icon: NEUB,
-    iconBg: "#383E56",
-    date: "October 2020",
-    points: [
-      "Computer Science & Engineering",
-    ],
-  }, */
   {
-    
     title: "ICPC Dhaka Regional",
     company_name: " ",
     icon: icpc2020,
     iconBg: "#383E56",
-    date: "January-2020(ranked-115th)",
+    date: "January-2020 (Ranked 115th)",
     points: [
-      "First appearance in ICPC Dhaka Reginal & Solved 2 problems",
+      "First appearance in ICPC Dhaka Regional & Solved 2 problems",
     ],
   },
   {
@@ -194,9 +153,9 @@ const experiences = [
     company_name: " ",
     icon: icpc,
     iconBg: "#E6DEDD",
-    date: "December-2024(ranked-91th)",
+    date: "December-2024 (Ranked 91st)",
     points: [
-      "Second appearance in ICPC Dhaka Reginal & Solved 4 problems",
+      "Second appearance in ICPC Dhaka Regional & Solved 4 problems",
     ],
   },
   {
@@ -204,9 +163,9 @@ const experiences = [
     company_name: " ",
     icon: iupc,
     iconBg: "#383E56",
-    date: "November-2024(ranked 7th)",
+    date: "November-2024 (Ranked 7th)",
     points: [
-      "I have participated in the Intra University Programming Contest (IUPC) organized by Metropolitan University, and my team secured the 7th position in this competition.",
+      "Participated in the Intra University Programming Contest (IUPC) organized by Metropolitan University, securing 7th position.",
     ],
   },
   {
@@ -214,9 +173,9 @@ const experiences = [
     company_name: " ",
     icon: Hack,
     iconBg: "#E6DEDD",
-    date: "5* rated",
+    date: "5★ Rated",
     points: [
-      "I have achieved a 5-star rating on HackerRank, demonstrating my proficiency in various programming challenges and algorithms.",
+      "Achieved a 5-star rating on HackerRank, demonstrating algorithm design and problem-solving proficiency.",
     ],
   },
   {
@@ -224,9 +183,9 @@ const experiences = [
     company_name: " ",
     icon: math,
     iconBg: "#E6DEDD",
-    date: "2nd runners-up",
+    date: "2nd Runner-up",
     points: [
-      "This olympiad was organized by my university, and I secured the 2nd runners-up position in this competition.",
+      "Secured 2nd runner-up position in the University Math Olympiad.",
     ],
   },
   {
@@ -236,14 +195,12 @@ const experiences = [
     iconBg: "#E6DEDD",
     date: "Instructor",
     points: [
-      "Led multiple programming workshops at my university, mentoring my juniors in problem solving, algorithms, and programming fundamentals.",
+      "Led multiple programming workshops, mentoring juniors in algorithms, data structures, and problem-solving techniques.",
     ],
   },
 ];
 
-const testimonials = [
- /*  */
-];
+const testimonials = [];
 
 const projects = [
   {
@@ -275,7 +232,7 @@ const projects = [
   {
     name: "GMart",
     description:
-      "Modern E-commerse Website using django & Reactjs",
+      "Modern E-commerce Website using Django & React.js with DRF.",
     tags: [
       { name: "Python", color: "green-text-gradient" },
       { name: "Django", color: "blue-text-gradient" },
@@ -289,7 +246,7 @@ const projects = [
   {
     name: "Mr.Doctor",
     description:
-      "Ai Disease Predictor & Medicine Suggussion",
+      "AI Disease Predictor & Medicine Suggestion platform.",
     tags: [
       { name: "Python", color: "green-text-gradient" },
       { name: "Django", color: "blue-text-gradient" },
@@ -300,10 +257,10 @@ const projects = [
     source_code_link: "https://github.com/Sumonsiu01/dieseasePrediction",
     live_link: "https://your-tripguide-live-link.com",
   },
- {
+  {
     name: "Food Online",
     description:
-      "A food delivery web application built with Django and React, allowing users to order food online from various restaurants. The application features a user-friendly interface, real-time order tracking, and secure payment integration.",
+      "A food delivery web application built with Django and React, allowing users to order food online with real-time order tracking and secure payment integration.",
     tags: [
       { name: "Python", color: "green-text-gradient" },
       { name: "Django", color: "blue-text-gradient" },
@@ -314,23 +271,79 @@ const projects = [
     source_code_link: "https://github.com/Sumonsiu01/foodonline",
     live_link: "https://your-tripguide-live-link.com",
   },
-
   {
     name: "IntellLearn",
     description:
-      "A comprehensive online learning platform that leverages AI to provide personalized learning experiences. Built with Django and React, it offers a wide range of courses, interactive quizzes, and progress tracking features.",
+      "A comprehensive online learning platform that leverages AI to provide personalized learning experiences with courses, interactive quizzes, and progress tracking.",
     tags: [
       { name: "Python", color: "green-text-gradient" },
       { name: "Django", color: "blue-text-gradient" },
       { name: "Reactjs", color: "green-text-gradient" },
       { name: "DRF", color: "pink-text-gradient" },
-      { name:"geminiAPi", color:"blue-text-gradient"}
+      { name: "geminiAPi", color: "blue-text-gradient" }
     ],
     image: ehome,
     source_code_link: "https://github.com/Sumonsiu01/Elearning/tree/master",
     live_link: "https://your-tripguide-live-link.com",
   },
- 
-
 ];
-export { services, technologies, experiences, testimonials, projects };
+
+const competitiveProfiles = [
+  {
+    platform: "LeetCode",
+    username: "Selim_Al_Sumon",
+    profileLink: "https://leetcode.com/u/Selim_Al_Sumon/",
+    metricLabel: "Problems Solved",
+    metricValue: "250+",
+    highlight: "Top Topics: Arrays, DP, Trees",
+    status: "Active Solver",
+    badge: "top 20% in contests",
+    color: "#FFA116",
+    glow: "rgba(255, 161, 22, 0.15)",
+  },
+  {
+    platform: "Codeforces",
+    username: "Selim_Al_Sumon",
+    profileLink: "https://codeforces.com/profile/Selim_Al_Sumon",
+    metricLabel: "Max Rating",
+    metricValue: "Newbie",
+    highlight: "Div. 2 & Div. 3 Contests",
+    status: "Competitive",
+    badge: "Contestant",
+    color: "#1890FF",
+    glow: "rgba(24, 144, 255, 0.15)",
+  },
+  {
+    platform: "HackerRank",
+    username: "selimalsumon",
+    profileLink: "https://www.hackerrank.com/selimalsumon/",
+    metricLabel: "Problem Solving",
+    metricValue: "5 Stars ★★★★★",
+    highlight: "Python & Problem Solving Skills",
+    status: "Verified Badges",
+    badge: "5* Rated Coder",
+    color: "#00EA64",
+    glow: "rgba(0, 234, 100, 0.15)",
+  },
+  {
+    platform: "CodeChef",
+    username: "sumon0_100",
+    profileLink: "https://www.codechef.com/users/sumon0_100",
+    metricLabel: "Problem Solving",
+    metricValue: "2★ / Div 3",
+    highlight: "Starters & Long Challenges",
+    status: "Contestant",
+    badge: "verified profile",
+    color: "#5B4638",
+    glow: "rgba(91, 70, 56, 0.2)",
+  },
+];
+
+export { 
+  services, 
+  technologies, 
+  experiences, 
+  testimonials, 
+  projects, 
+  competitiveProfiles ,
+};

@@ -1,30 +1,46 @@
 import { BrowserRouter } from "react-router-dom";
 
-import { About, Contact, Experience, Feedbacks, Hero, Navbar, Tech, Works, StarsCanvas,Footer } from "./components";
+import { 
+  Navbar, 
+  Hero, 
+  Works, 
+  ProblemSolving, 
+  Tech, 
+  Experience, 
+  Contact, 
+  Footer 
+} from "./components";
 import Education from "./components/Education";
 
 const App = () => {
   return (
     <BrowserRouter>
-      <div className='relative z-0 bg-primary'>
-        <div className='bg-hero-pattern bg-cover bg-no-repeat bg-center'>
+      <div className="relative z-0 bg-[#040812] text-slate-100 min-h-screen">
+        
+        {/* Hero & Navigation */}
+        <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
           <Navbar />
           <Hero />
         </div>
-        {/* <About /> */}
-         <Education/>
-        <Experience />
-        <Tech />
+
+        {/* Primary Portfolio Showcase */}
         <Works />
-      {/*   <Feedbacks /> */}
-        <div className='relative z-0'>
+        <ProblemSolving />
+        <Tech />
+        
+        {/* Credentials & Milestones */}
+        <Experience />
+        <Education />
+
+        {/* Uplink & Closure */}
+        <div className="relative z-0">
           <Contact />
-         {/*  <StarsCanvas /> */}
         </div>
-        <Footer/>
+        <Footer />
+        
       </div>
     </BrowserRouter>
   );
-}
+};
 
 export default App;
