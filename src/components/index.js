@@ -10,6 +10,7 @@ import Feedbacks from "./Feedbacks";
 import Contact from "./Contact";
 import CanvasLoader from "./Loader";
 import ProblemSolving from "./ProblemSolving";
+import Job from "./job";
 
 
 export {
@@ -28,4 +29,7 @@ export {
   ComputersCanvas, 
   StarsCanvas,
   ProblemSolving,
+  Job,
+
+  
 };

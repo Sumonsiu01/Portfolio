@@ -7,8 +7,9 @@ import {
   ProblemSolving, 
   Tech, 
   Experience, 
+  Job,
   Contact, 
-  Footer 
+  Footer,
 } from "./components";
 import Education from "./components/Education";
 
@@ -24,6 +25,7 @@ const App = () => {
         </div>
 
         {/* Primary Portfolio Showcase */}
+        <Job />
         <Works />
         <ProblemSolving />
         <Tech />

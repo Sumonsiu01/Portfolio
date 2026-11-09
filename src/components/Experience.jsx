@@ -86,7 +86,7 @@ const Experience = () => {
           <span>Milestones & Leadership</span>
         </div>
         <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
-          Awards & <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-400">Experience.</span>
+          Awards & <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-400">Achievements</span>
         </h2>
         <p className="mt-3 text-slate-400 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
           Key achievements, industry involvement, and leadership roles across academic and community initiatives.
